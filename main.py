@@ -194,8 +194,6 @@ def device_info():
         return jsonify({"error": str(e)}), 500
 
 # تشغيل التطبيق
-if __name__ == '__main__':
-    import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
