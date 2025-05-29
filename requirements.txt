@@ -2,5 +2,7 @@ flask==2.0.1
 pytube==12.1.0
 moviepy==1.0.3
 opencv-python-headless==4.5.3.56
+numpy==1.23.5
+imageio-ffmpeg==0.4.8
 werkzeug==2.0.1
 gunicorn
