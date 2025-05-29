@@ -1,0 +1,47 @@
+/* تحسينات إضافية للتوافق مع iPhone وSafari */
+
+/* تحسينات عامة للفيديو */
+video {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 12px;
+    background-color: #000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* تحسينات خاصة بـ iOS */
+@supports (-webkit-touch-callout: none) {
+    video {
+        -webkit-playsinline: true;
+        playsinline: true;
+        -webkit-video-playable-inline: true;
+    }
+    
+    video::-webkit-media-controls-fullscreen-button {
+        display: none;
+    }
+    
+    video::-webkit-media-controls {
+        display: flex !important;
+        opacity: 1 !important;
+    }
+}
+
+/* تحسينات خاصة بـ Safari */
+@supports (not (-ms-ime-align:auto)) and (not (-moz-appearance:none)) {
+    video::-webkit-media-controls-panel {
+        display: flex !important;
+    }
+    
+    video::-webkit-media-controls-play-button {
+        display: flex !important;
+    }
+}
+
+/* تحسينات للأجهزة المحمولة */
+@media (max-width: 768px) {
+    video {
+        max-height: 50vh;
+    }
+}

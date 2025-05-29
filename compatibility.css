@@ -1,0 +1,121 @@
+/* Cross-platform video styling */
+.video-container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Make videos responsive */
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* iOS specific video controls styling */
+@supports (-webkit-touch-callout: none) {
+  .video-container video::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-container video::-webkit-media-controls-play-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+  }
+}
+
+/* Custom video controls for better cross-platform experience */
+.custom-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover .custom-video-controls {
+  opacity: 1;
+}
+
+.play-pause-btn, .fullscreen-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 5px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 10px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 5px;
+  width: 0%;
+}
+
+/* Download button styling */
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.download-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 64, 0.2);
+}
+
+.download-button i {
+  margin-left: 8px;
+}
+
+/* Platform-specific download instructions */
+.platform-instructions {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  display: none;
+}
+
+/* Show platform-specific instructions based on device */
+html[data-os="iOS"] .ios-instructions {
+  display: block;
+}
+
+html[data-browser="Safari"] .safari-instructions {
+  display: block;
+}
